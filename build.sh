@@ -7,7 +7,7 @@ ANYKERNEL3_DIR=$PWD/AnyKernel3/
 FINAL_KERNEL_ZIP=InfiniR_cepheus_v1.39_KSUN.zip
 
 # paths
-TC="/home/raystef66/kernel/prebuilts"
+TC="/home/runawa/kernel/prebuilts"
 
 PATH=${TC}/clang-r416183b1/bin:${TC}/aarch64/bin:${TC}/arm/bin:$PATH
 
@@ -51,7 +51,7 @@ cp $PWD/out/arch/arm64/boot/Image.gz-dtb $ANYKERNEL3_DIR/
 echo -e "$yellow**** Time to zip up! ****$nocol"
 cd $ANYKERNEL3_DIR/
 zip -r9 $FINAL_KERNEL_ZIP * -x README $FINAL_KERNEL_ZIP
-cp $ANYKERNEL3_DIR/$FINAL_KERNEL_ZIP /home/raystef66/kernel/$FINAL_KERNEL_ZIP
+cp $ANYKERNEL3_DIR/$FINAL_KERNEL_ZIP /home/runawa/kernel/$FINAL_KERNEL_ZIP
 
 echo -e "$yellow**** Done, here is your checksum ****$nocol"
 cd ..
