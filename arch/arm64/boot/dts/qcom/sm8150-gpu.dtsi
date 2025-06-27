@@ -31,35 +31,34 @@
 
 	gpu_opp_table: gpu-opp-table {
 		compatible = "operating-points-v2";
-
-		opp-600000000 {
-			opp-hz = /bits/ 64 <600000000>;
-			opp-microvolt = <RPMH_REGULATOR_LEVEL_TURBO>;
+		opp-745000000 {
+			opp-hz = /bits/ 64 <745000000>;
+			opp-microvolt = <RPMH_REGULATOR_LEVEL_NOM_L2>;
 		};
 
-		opp-553850000 {
-			opp-hz = /bits/ 64 <553850000>;
+		opp-560000000 {
+			opp-hz = /bits/ 64 <560000000>;
 			opp-microvolt = <RPMH_REGULATOR_LEVEL_NOM_L1>;
 		};
 
-		opp-486460000 {
-			opp-hz = /bits/ 64 <486460000>;
+		opp-427000000 {
+			opp-hz = /bits/ 64 <427000000>;
 			opp-microvolt = <RPMH_REGULATOR_LEVEL_NOM>;
 		};
 
-		opp-379650000 {
-			opp-hz = /bits/ 64 <379650000>;
-			opp-microvolt = <RPMH_REGULATOR_LEVEL_SVS_L1>;
+		opp-315000000 {
+			opp-hz = /bits/ 64 <315000000>;
+			opp-microvolt = <RPMH_REGULATOR_LEVEL_NOM>;
 		};
 
-		opp-309110000 {
-			opp-hz = /bits/ 64 <309110000>;
-			opp-microvolt = <RPMH_REGULATOR_LEVEL_SVS>;
+		opp-225000000 {
+			opp-hz = /bits/ 64 <225000000>;
+			opp-microvolt = <RPMH_REGULATOR_LEVEL_MIN_SVS>;
 		};
 
-		opp-215000000 {
-			opp-hz = /bits/ 64 <215000000>;
-			opp-microvolt = <RPMH_REGULATOR_LEVEL_LOW_SVS>;
+		opp-175000000 {
+			opp-hz = /bits/ 64 <175000000>;
+			opp-microvolt = <RPMH_REGULATOR_LEVEL_MIN_SVS>;
 		};
 	};
 
@@ -246,52 +245,52 @@
 
 			qcom,gpu-pwrlevel@0 {
 				reg = <0>;
-				qcom,gpu-freq = <600000000>;
-				qcom,bus-freq = <12>;
-				qcom,bus-min = <10>;
-				qcom,bus-max = <12>;
+				qcom,gpu-freq = <745000000>;
+				qcom,bus-freq = <11>;
+				qcom,bus-min = <11>;
+				qcom,bus-max = <11>;
 			};
 
 			qcom,gpu-pwrlevel@1 {
 				reg = <1>;
-				qcom,gpu-freq = <553850000>;
+				qcom,gpu-freq = <560000000>;
 				qcom,bus-freq = <10>;
-				qcom,bus-min = <9>;
+				qcom,bus-min = <10>;
 				qcom,bus-max = <11>;
 			};
 
 
 			qcom,gpu-pwrlevel@2 {
 				reg = <2>;
-				qcom,gpu-freq = <486460000>;
-				qcom,bus-freq = <9>;
-				qcom,bus-min = <8>;
+				qcom,gpu-freq = <427000000>;
+				qcom,bus-freq = <8>;
+				qcom,bus-min = <6>;
 				qcom,bus-max = <10>;
 			};
 
 			qcom,gpu-pwrlevel@3 {
 				reg = <3>;
-				qcom,gpu-freq = <379650000>;
-				qcom,bus-freq = <8>;
-				qcom,bus-min = <7>;
-				qcom,bus-max = <9>;
+				qcom,gpu-freq = <315000000>;
+				qcom,bus-freq = <6>;
+				qcom,bus-min = <4>;
+				qcom,bus-max = <8>;
 			};
 
 
 			qcom,gpu-pwrlevel@4 {
 				reg = <4>;
-				qcom,gpu-freq = <309110000>;
-				qcom,bus-freq = <5>;
-				qcom,bus-min = <5>;
-				qcom,bus-max = <7>;
+				qcom,gpu-freq = <225000000>;
+				qcom,bus-freq = <4>;
+				qcom,bus-min = <2>;
+				qcom,bus-max = <6>;
 			};
 
 			qcom,gpu-pwrlevel@5 {
 				reg = <5>;
-				qcom,gpu-freq = <215000000>;
-				qcom,bus-freq = <4>;
-				qcom,bus-min = <3>;
-				qcom,bus-max = <5>;
+				qcom,gpu-freq = <175000000>;
+				qcom,bus-freq = <2>;
+				qcom,bus-min = <2>;
+				qcom,bus-max = <4>;
 			};
 
 			qcom,gpu-pwrlevel@6 {
