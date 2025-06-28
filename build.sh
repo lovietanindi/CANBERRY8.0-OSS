@@ -4,30 +4,37 @@
 
 KERNEL_DEFCONFIG=cepheus_defconfig
 ANYKERNEL3_DIR=$PWD/AnyKernel3/
-FINAL_KERNEL_ZIP=runawa@IxoraLT-CANBERRY8.0-OSS.zip
+FINAL_KERNEL_ZIP=CANBERRY8.0-OSS.zip
+
+# Kernel Details
+VER=.8.0-OSS
+BASE_AK_VER=CANBERRY
+AK_VER=$BASE_AK_VER$VER
+export LOCALVERSION=-$AK_VER
+export KBUILD_BUILD_USER=Lovieta
+export KBUILD_BUILD_HOST=IxoraLT
 
 # paths
 TC=${HOME}/kernel/prebuilts
 
-PATH=${TC}/clang-r416183b1/bin:${TC}/aarch64/bin:${TC}/arm/bin:$PATH
+PATH=${TC}/clang-r416183b1/bin:$PATH
 
 export LLVM=1
 export CC=clang
 export CROSS_COMPILE=aarch64-linux-gnu-
 export ARCH=arm64
 export USE_CCACHE=1
-export DTC_EXT=${HOME}/kernel/dtc/dtc
 
 # Speed up build process
 MAKE="./makeparallel"
 
-make O=out ARCH=arm64 cepheus_defconfig
+make O=out ARCH=arm64 $KERNEL_DEFCONFIG
 
 START=$(date +"%s")
 
 make ARCH=arm64 \
-        O=out \
-        CC=clang \
+	O=out \
+	CC=clang \
 	AR=llvm-ar \
         LD=ld.lld \
         NM=llvm-nm \
@@ -35,7 +42,7 @@ make ARCH=arm64 \
         OBJDUMP=llvm-objdump \
         STRIP=llvm-strip \
         -j$(nproc --all) | tee ${HOME}/CANBERRY8.0-OSS/out/kernel.log
-               
+
 
 echo -e "$yellow**** Verify Image.gz-dtb ****$nocol"
 ls $PWD/out/arch/arm64/boot/Image.gz-dtb
