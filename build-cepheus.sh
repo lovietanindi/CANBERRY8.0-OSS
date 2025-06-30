@@ -44,24 +44,24 @@ make ARCH=arm64 \
         -j$(nproc --all) | tee ${HOME}/CANBERRY8.0-OSS/out/kernel.log
 
 
-echo -e "$yellow**** Verify Image.gz-dtb ****$nocol"
+echo -e '\033[1;33m' "=====Verify Image.gz-dtb=====$nocol"
 ls $PWD/out/arch/arm64/boot/Image.gz-dtb
 
-echo -e "$yellow**** Verifying AnyKernel3 Directory ****$nocol"
+echo -e '\033[1;33m' "=====Verifying AnyKernel3 Directory=====$nocol"
 ls $ANYKERNEL3_DIR
-echo -e "$yellow**** Removing leftovers ****$nocol"
+echo -e '\033[1;31m' "=====Removing leftovers=====$nocol"
 rm -rf $ANYKERNEL3_DIR/Image.gz-dtb
 rm -rf $ANYKERNEL3_DIR/$FINAL_KERNEL_ZIP
 
-echo -e "$yellow**** Copying Image.gz-dtb ****$nocol"
+echo -e '\033[1;34m' "=====Copying Image.gz-dtb=====$nocol"
 cp $PWD/out/arch/arm64/boot/Image.gz-dtb $ANYKERNEL3_DIR/
 
-echo -e "$yellow**** Time to zip up! ****$nocol"
+echo -e '\033[1;34m' "=====Time to zip up!====="
 cd $ANYKERNEL3_DIR/
 zip -r9 $FINAL_KERNEL_ZIP * -x README $FINAL_KERNEL_ZIP
 cp $ANYKERNEL3_DIR/$FINAL_KERNEL_ZIP ${HOME}/kernel/$FINAL_KERNEL_ZIP
 
-echo -e "$yellow**** Done, here is your checksum ****$nocol"
+echo -e '\033[1;35m' "=====Done, here is your checksum=====$nocol"
 cd ..
 rm -rf $ANYKERNEL3_DIR/$FINAL_KERNEL_ZIP
 rm -rf $ANYKERNEL3_DIR/Image.gz-dtb
